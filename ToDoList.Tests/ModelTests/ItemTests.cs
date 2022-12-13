@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ToDoList.Models;
 using System.Collections.Generic;
@@ -10,6 +8,7 @@ namespace ToDoList.Tests
     [TestClass]
     public class ItemTests : IDisposable
     {
+
         public void Dispose()
         {
             Item.ClearAll();
@@ -19,18 +18,20 @@ namespace ToDoList.Tests
         public void ItemConstructor_CreatesInstanceOfItem_Item()
         {
             Item newItem = new Item("test");
-            Assert.AreEqual(typeof (Item), newItem.GetType());
+            Assert.AreEqual(typeof(Item), newItem.GetType());
         }
 
         [TestMethod]
         public void GetDescription_ReturnsDescription_String()
         {
+            // Arrange
             string description = "Walk the dog.";
             Item newItem = new Item(description);
+            // Act
             string result = newItem.Description;
-            Assert.AreEqual (description, result);
+            // Assert
+            Assert.AreEqual(description, result);
         }
-
         [TestMethod]
         public void SetDescription_SetDescription_String()
         {
@@ -44,9 +45,8 @@ namespace ToDoList.Tests
             string result = newItem.Description;
 
             //Assert
-            Assert.AreEqual (updatedDescription, result);
+            Assert.AreEqual(updatedDescription, result);
         }
-
         [TestMethod]
         public void GetAll_ReturnsEmptyList_ItemList()
         {
@@ -57,9 +57,8 @@ namespace ToDoList.Tests
             List<Item> result = Item.GetAll();
 
             // Assert
-            CollectionAssert.AreEqual (newList, result);
+            CollectionAssert.AreEqual(newList, result);
         }
-
         [TestMethod]
         public void GetAll_ReturnsItems_ItemList()
         {
@@ -74,7 +73,10 @@ namespace ToDoList.Tests
             List<Item> result = Item.GetAll();
 
             //Assert
-            CollectionAssert.AreEqual (newList, result);
+            CollectionAssert.AreEqual(newList, result);
         }
+
+
     }
 }
+
