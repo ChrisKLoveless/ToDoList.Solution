@@ -10,8 +10,8 @@ using ToDoList.Models;
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(ToDoListContext))]
-    [Migration("20230102231217_AddItemTagJoinEntity")]
-    partial class AddItemTagJoinEntity
+    [Migration("20230103195058_AddDoneCheck")]
+    partial class AddDoneCheck
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,9 @@ namespace ToDoList.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
+
+                    b.Property<bool>("Done")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("ItemId");
 
