@@ -2,11 +2,8 @@
   Layout = "_Layout";
 }
 
-<body>
-  <h1>Welcome to the To Do List!</h1>
-  <br>
-  <p><a href='/categories'>View categories</a></p>
-  <p>@Html.ActionLink("See all items", "Index", "Items")</p>
-  <p>@Html.ActionLink("See all tags", "Index", "Tags")</p>
-</body>
+<h1>Welcome to the To Do List!</h1>
 
+<p>@Html.ActionLink("See all items", "Index", "Items")</p>
+<p>@Html.ActionLink("See all categories", "Index", "Categories")</p>
+<p>@Html.ActionLink("See all tags", "Index", "Tags")</p>
