@@ -15,10 +15,11 @@ else
   <ul>
     @foreach (Item item in Model)
     {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name | @item.Done</li>
+      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name | Done: @item.Done</li>
     }
   </ul>
 }
 
 <p>@Html.ActionLink("Add new item", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Create a new tag", "Create", "Tags")</p>

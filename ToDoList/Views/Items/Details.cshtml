@@ -9,6 +9,7 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Done): @Model.Done</h3>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -24,13 +25,15 @@ else
       @using (Html.BeginForm("DeleteJoin", "Items"))
       {
         @Html.Hidden("joinId", @join.ItemTagId)
-        <input type="submit" value="Delete" />
+        <input type="submit" value="Delete" class="btn btn-dark"/>
       }
     }
   </ul>
 }
 
+
+
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Item or Category", "Edit", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.ItemId })</p>
+<p>@Html.ActionLink("Add a Tag for this Item", "AddTag", new { id = Model.ItemId })</p>
 <p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>

@@ -13,12 +13,16 @@
   @Html.HiddenFor(model => model.ItemId)
 
   @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)<br>
 
   @Html.LabelFor(model => model.Category)
-  @Html.DropDownList("CategoryId")
+  @Html.DropDownList("CategoryId")<br>
 
-  <input type="submit" value="Save" />
+  @Html.LabelFor(model => model.Done)
+  @Html.EditorFor(model => model.Done)
+  <br>
+
+  <input type="submit" value="Save" class="btn btn-dark"/>
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
