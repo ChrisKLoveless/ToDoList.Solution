@@ -9,13 +9,21 @@
 @if (@Model.Count == 0)
 {
   <h3>No items have been added yet!</h3>
-} 
+}
 else
 {
+  List<Item> itemListOrder = new List<Item>();
+  @foreach (Item item in Model)
+  {
+    itemListOrder.Add(item);
+  }
+  Console.WriteLine(itemListOrder.Count);
+  List<Item> SortedList = itemListOrder.OrderBy(task => task.DueDate).ToList();
   <ul>
-    @foreach (Item item in Model)
+  @foreach (Item task in itemListOrder)
     {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name | Done: @item.Done</li>
+      <li>@Html.ActionLink($"{task.Description}", "Details", new { id = task.ItemId }) | Category: @task.Category.Name |
+        Done: @task.Done | Due Date: @task.DueDate</li>
     }
   </ul>
 }
